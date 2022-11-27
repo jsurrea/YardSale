@@ -10,13 +10,24 @@
     <title>Document</title>
     <style>
         :root {
+            --sm: 1.4rem;
+            --md: 1.6rem;
+            --lg: 1.8rem;
+
             --white: #FFFFFF;
             --black: #000000;
             --very-light-pink: #C7C7C7;
             --text-input-field: #F7F7F7;
             --hospital-green: #ACD9B2;
         }
+        html {
+            font-size: 62.5%;
+        }
         body {
+            margin: 0;
+            box-sizing: border-box;
+            
+            font-size: var(--md);
             font-family: 'Quicksand', sans-serif;
         }
     </style>
