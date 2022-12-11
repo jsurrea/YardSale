@@ -1,0 +1,141 @@
+:root {
+    --sm: 1.4rem;
+    --md: 1.6rem;
+    --lg: 1.8rem;
+
+    --white: #FFFFFF;
+    --black: #000000;
+    --very-light-pink: #C7C7C7;
+    --text-input-field: #F7F7F7;
+    --hospital-green: #ACD9B2;
+}
+html {
+    font-size: 62.5%;
+}
+body {
+    margin: 0;
+    box-sizing: border-box;
+    
+    font-size: var(--md);
+    font-family: 'Quicksand', sans-serif;
+}
+.inactive {
+    display: none;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 0 2.4rem;
+    height: 6rem;
+    border-bottom: 0.1rem solid var(--very-light-pink);
+}
+.menu {
+    display: none;
+    width: 3rem;
+}
+.logo {
+    width: 10rem;
+}
+.navbar-left ul, .navbar-right ul {
+    padding: 0;
+    margin: 0;
+    height: 6rem;
+    display: flex;
+    align-items: center;
+    list-style: none;
+}
+.navbar-left {
+    display: flex;
+}
+.navbar-left ul {
+    margin-left: 1.2rem;
+}
+nav ul li a {
+    padding: 0.8rem;
+
+    text-decoration: none;
+    color: var(--very-light-pink);
+    border: 0.1rem solid var(--white);
+    border-radius: 0.8rem;
+}
+nav ul li a:hover {
+    border-color: var(--hospital-green);
+    color: var(--hospital-green);
+}
+.navbar-email {
+    margin-right: 1.2rem;
+    color: var(--very-light-pink);
+    font-size: var(--sm);
+}
+.navbar-email img {
+    margin-left: 1rem;
+    transform: rotate(90deg);
+}
+.navbar-shopping-cart {
+    position: relative;
+}
+.navbar-shopping-cart div {
+    width: 1.6rem;
+    height: 1.6rem;
+    background-color: var(--hospital-green);
+    border-radius: 50%;
+    font-size: var(--sm);
+    font-weight: bold;
+    position: absolute;
+    top: -0.6rem;
+    right: -0.3rem;
+    display: flex;
+    justify-content: center;
+}
+.desktop-menu {
+    position: absolute;
+    top: 6.05rem;
+    right: 6rem;
+
+    width: 10rem;
+    height: auto;
+    padding: 2rem 2rem 0 2rem;
+
+    border: 0.1rem solid var(--very-light-pink);
+    border-radius: 0.6rem;
+
+    background-color: var(--white);
+}
+.desktop-menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.desktop-menu ul li {
+    text-align: end;
+}
+.desktop-menu ul li:not(:last-child) {
+    font-weight: bold;
+}
+.desktop-menu ul li:last-child {
+    padding-top: 2rem;
+    border-top: 0.1rem solid var(--very-light-pink);
+}
+.desktop-menu ul li:last-child a {
+    color: var(--hospital-green);
+    font-size: var(--sm);
+}
+.desktop-menu ul li a {
+    display: inline-block;
+    margin-bottom: 2rem;
+
+    color: var(--black);
+    text-decoration: none;
+    font-size: var(--sm);
+}
+@media (max-width: 64rem) {
+    .menu {
+        display: block;
+    }
+    .navbar-left ul {
+        display: none;
+    }
+    .navbar-email {
+        display: none;
+    }
+}
