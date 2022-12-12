@@ -1,3 +1,4 @@
+/* General */
 :root {
     --sm: 1.4rem;
     --md: 1.6rem;
@@ -22,6 +23,7 @@ body {
 .inactive {
     display: none;
 }
+/* Navbar */
 nav {
     display: flex;
     justify-content: space-between;
@@ -66,6 +68,7 @@ nav ul li a:hover {
     margin-right: 1.2rem;
     color: var(--very-light-pink);
     font-size: var(--sm);
+    cursor: pointer;
 }
 .navbar-email img {
     margin-left: 1rem;
@@ -87,6 +90,7 @@ nav ul li a:hover {
     display: flex;
     justify-content: center;
 }
+/* Desktop Menu */
 .desktop-menu {
     position: absolute;
     top: 6.05rem;
@@ -128,6 +132,41 @@ nav ul li a:hover {
     text-decoration: none;
     font-size: var(--sm);
 }
+/* Mobile Menu */
+.mobile-menu {
+    position: absolute;
+    top: 6.05rem;
+
+    padding: 2.4rem;
+}
+.mobile-menu a {
+    text-decoration: none;
+    color: var(--black);
+    font-weight: bold;
+}
+.mobile-menu ul {
+    padding: 0;
+    margin: 2.4rem 0 0;
+    list-style: none;
+}
+.mobile-menu ul:nth-child(1) {
+    border-bottom: 0.1rem solid var(--very-light-pink);
+}
+.mobile-menu ul:last-child {
+    position: relative;
+    top: 4rem;
+}
+.mobile-menu ul li {
+    margin-bottom: 2.4rem;
+}
+.mobile-menu .email {
+    font-size: var(--sm);
+    font-weight: 300;
+}
+.mobile-menu .sign-out {
+    font-size: var(--sm);
+    color: var(--hospital-green);
+}
 @media (max-width: 64rem) {
     .menu {
         display: block;
@@ -136,6 +175,14 @@ nav ul li a:hover {
         display: none;
     }
     .navbar-email {
+        display: none;
+    }
+    .desktop-menu {
+        display: none;
+    }
+}
+@media (min-width: 64.1rem) {
+    .mobile-menu {
         display: none;
     }
 }
