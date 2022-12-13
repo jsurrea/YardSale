@@ -4,38 +4,47 @@ const iconMenu = document.querySelector('.menu')
 const mobileMenu = document.querySelector('.mobile-menu')
 const iconAside = document.querySelector('.navbar-shopping-cart')
 const shoppingCartContainer = document.querySelector('#shoppingCartContainer')
+const productDetailContainer = document.querySelector('#productDetail')
+const productDetailCloseIcon = document.querySelector('.product-detail-close')
 
 navbarEmail.addEventListener('click', toggleDesktopMenu)
 iconMenu.addEventListener('click', toggleMobileMenu)
 iconAside.addEventListener('click', toggleShoppingCartContainer)
+productDetailCloseIcon.addEventListener('click', closeProductDetailAside)
 
+function closeAll() {
+    toClose = [desktopMenu, mobileMenu, shoppingCartContainer, productDetailContainer]
+    for(container of toClose) {
+        container.classList.add('inactive')
+    }
+}
 function toggleDesktopMenu() {
-    desktopMenu.classList.toggle('inactive')
-
-    const isShoppingCartContainerOpen = !shoppingCartContainer.classList.contains('inactive')
-    if (isShoppingCartContainerOpen) {
-        shoppingCartContainer.classList.add('inactive')
+    const closed = desktopMenu.classList.contains('inactive')
+    closeAll()
+    if(closed) {
+        desktopMenu.classList.remove('inactive')
     }
 }
 function toggleMobileMenu() {
-    mobileMenu.classList.toggle('inactive')
-
-    const isShoppingCartContainerOpen = !shoppingCartContainer.classList.contains('inactive')
-    if (isShoppingCartContainerOpen) {
-        shoppingCartContainer.classList.add('inactive')
+    const closed = mobileMenu.classList.contains('inactive')
+    closeAll()
+    if(closed) {
+        mobileMenu.classList.remove('inactive')
     }
 }
 function toggleShoppingCartContainer() {
-    shoppingCartContainer.classList.toggle('inactive')
-
-    const isMobileMenuOpen = !mobileMenu.classList.contains('inactive')
-    if (isMobileMenuOpen) {
-        mobileMenu.classList.add('inactive')
+    const closed = shoppingCartContainer.classList.contains('inactive')
+    closeAll()
+    if(closed) {
+        shoppingCartContainer.classList.remove('inactive')
     }
-    const isDesktopMenuOpen = !desktopMenu.classList.contains('inactive')
-    if (isDesktopMenuOpen) {
-        desktopMenu.classList.add('inactive')
-    }
+}
+function openProductDetailAside() {
+    closeAll()
+    productDetailContainer.classList.remove("inactive")
+}
+function closeProductDetailAside() {
+    productDetailContainer.classList.add("inactive")
 }
 
 const productList = []
@@ -57,6 +66,8 @@ function renderProducts(productList) {
     
         const img = document.createElement('img')
         img.setAttribute('src', product.image)
+        img.style.cursor = 'pointer'
+        img.addEventListener('click', openProductDetailAside)
         productCard.appendChild(img)
     
         const productInfo = document.createElement('div')
